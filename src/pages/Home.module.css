@@ -1,0 +1,28 @@
+/* Centering the content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 150px;
+  padding-left: 50vh;
+  padding-right: 50vh;
+}
+
+/* Styling the heading */
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5rem; /* Increase font size */
+  font-weight: bold;
+  color: #2d3748; /* Dark gray text */
+  margin-bottom: 1rem;
+}
+
+/* Styling the subtitle */
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  color: #4a5568; /* Medium gray text */
+  max-width: 600px; /* Limit width for better readability */
+}

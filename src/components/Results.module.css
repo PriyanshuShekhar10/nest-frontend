@@ -1,0 +1,317 @@
+/* src/components/Results.module.css */
+
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+/* Loading and no results text */
+.loadingText,
+.noResultsText {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Results wrapper */
+.resultsWrapper {
+  margin-top: 1.5rem;
+}
+
+/* Individual result item */
+.resultItem {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Header section */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Numbering badge */
+.indexBadge {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
+/* Flags container */
+.flagsContainer {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* Flag styles */
+.sponsorFlag,
+.statusFlag,
+.durationFlag {
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6b7280;
+}
+
+/* Status flag colors */
+.statusFlag.completed {
+  background-color: #10b981; /* Green for completed */
+}
+
+.statusFlag.inProgress {
+  background-color: #f87171; /* Red for in-progress */
+}
+
+/* Duration flag */
+.durationFlag {
+  background-color: #3b82f6;
+}
+
+/* Thin dotted separator */
+.separator {
+  border-top: 1px dotted #aaa;
+  margin: 1rem 0;
+}
+
+/* Title link */
+.titleLink {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #1a0dab;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
+}
+
+/* Full content without expand/collapse */
+.highlightBox {
+  background-color: #f9f9f9;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow: visible;
+}
+
+/* Icon container */
+.iconContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.iconContainer > * {
+  cursor: pointer;
+}
+
+.iconContainer > *:hover {
+  color: #000;
+}
+
+/* Horizontal line styling */
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+.expandToggle {
+  color: #068ef1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.expandToggle:hover {
+  text-decoration: underline;
+}
+
+/* NCT ID styling */
+.nctId {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Export Button Styling */
+.exportButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: #10b981;
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 1rem;
+}
+
+.exportButton:hover {
+  background-color: #059669;
+}
+
+.exportButton:active {
+  transform: scale(0.98);
+}
+
+.exportIcon {
+  margin-right: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Distance Meter Styling */
+.distanceMeter {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  cursor: default; /* Ensures the tooltip appears */
+  width: 30vh;
+}
+
+.meterBar {
+  flex: 1;
+  height: 10px;
+  background-color: #e0e0e0; /* Light grey background */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: 0.5em;
+  position: relative;
+}
+
+.meterFill {
+  height: 100%;
+  width: 0%; /* Will be set dynamically */
+  background-color: #4caf50; /* Default to green */
+  border-radius: 5px 0 0 5px;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.distanceValue {
+  font-weight: bold;
+  font-size: 0.9em;
+  min-width: 50px; /* Ensures consistent spacing */
+}
+
+/* Optional: Tooltip styling if you want to customize */
+.distanceMeter:hover .meterBar {
+  opacity: 0.8;
+}
+
+/* Overlay styling with fade-in animation */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal content with slide-in effect and shadow */
+.modalContent {
+  position: relative;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 500px;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Buttons container styling */
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Button styling */
+.modalButtons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: #3498db;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.modalButtons button:hover {
+  background: #2980b9;
+}
+
+.modalButtons button:active {
+  transform: scale(0.98);
+}
+
+/* Citation text styling */
+.citationText {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Georgia", serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  background: #fafafa;
+  resize: vertical;
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 480px) {
+  .modalContent {
+    padding: 1rem;
+  }
+
+  .modalButtons button {
+    flex: 1;
+  }
+
+  .exportButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

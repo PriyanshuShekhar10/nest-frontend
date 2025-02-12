@@ -1,0 +1,137 @@
+/* src/components/PcaPlot.module.css */
+
+.container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.generateButton {
+  padding: 0.5rem 1rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.generateButton:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+.generateButton:not(:disabled):hover {
+  background-color: #1976d2;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modalContent {
+  background-color: #fff;
+  width: 90%;
+  max-width: 90vw;
+  max-height: 90%;
+  overflow-y: auto;
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #ff0000;
+}
+
+/* --- NEW FLEX LAYOUT FOR MODAL BODY --- */
+.modalBody {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* spacing between left and right sections */
+  max-height: 80vh; /* ensures the modal doesn't grow too tall */
+  overflow: hidden; /* prevents entire page scroll; sections can scroll internally */
+}
+
+/* Left section for the PCA plot */
+.leftSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Right section for AI explanations (scrollable) */
+.rightSection {
+  flex: 1;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+  padding-left: 1rem;
+}
+
+/* Plot Image */
+.plotImage {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+/* Explanations Section (if needed outside .rightSection) */
+.explanations {
+  margin-top: 2rem;
+}
+
+/* Individual Explanation Items */
+.explanationItem {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.explanationItem strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.explanationItem p {
+  margin: 0.3rem 0;
+}

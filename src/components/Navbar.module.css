@@ -1,0 +1,156 @@
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image */
+.logoImage {
+  width: 50px; /* Adjust logo size */
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Brand name */
+.brandName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Navbar container with transparent blur effect */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: white; /* Transparent white */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  max-width: calc(100% - 30rem); /* Maintain centered position */
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Fixed navbar behavior on scroll */
+.navbar.fixed {
+  margin-top: 0;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 15px 30px;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px;
+  color: #34d399;
+  margin-right: 8px;
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Nav links */
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks li {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #007bff;
+}
+
+/* Auth buttons */
+.authButtons {
+  display: flex;
+  gap: 15px;
+}
+
+.loginBtn {
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  /* padding: 10px 20px; */
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.loginBtn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.tryBtn {
+  background: #007bff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tryBtn:hover {
+  background: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .navbar {
+    max-width: calc(100% - 10rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 10px 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .authButtons {
+    flex-direction: column;
+  }
+}
+
+/* Add padding to avoid content overlap with navbar */
+.bodyPadding {
+  padding-top: 80px;
+}
